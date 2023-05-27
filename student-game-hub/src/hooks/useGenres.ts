@@ -1,4 +1,5 @@
-import useData from "./useData";
+// import useData from "./useData";
+import genres from "../data/genres";
 
 export interface Genre {
     id: Number;
@@ -6,6 +7,10 @@ export interface Genre {
     image_background: string;
 }
 
-const useGenres = () => useData<Genre>('/genres');
+// wheh data rarerly changes, one could add that data to the deployment
+// to avoid another network call
+// const useGenres = () => useData<Genre>('/genres');
+
+const useGenres = () => ({ data: genres, isLoading: false, error: null})
 
 export default useGenres;

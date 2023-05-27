@@ -19,6 +19,8 @@ interface Props {
 const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
+  // since useGenres is not using static data
+  // we could remove the 2 below lines, but we are keeping now.
   if (error) return null;
   if (data.length === 0) return <Spinner />;
 
